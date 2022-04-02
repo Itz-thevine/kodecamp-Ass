@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/kodecamp-Ass/static/css/main.f8c3469e.css",
+    "main.js": "/kodecamp-Ass/static/js/main.9de4a316.js",
+    "index.html": "/kodecamp-Ass/index.html",
+    "main.f8c3469e.css.map": "/kodecamp-Ass/static/css/main.f8c3469e.css.map",
+    "main.9de4a316.js.map": "/kodecamp-Ass/static/js/main.9de4a316.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f8c3469e.css",
+    "static/js/main.9de4a316.js"
+  ]
+}
