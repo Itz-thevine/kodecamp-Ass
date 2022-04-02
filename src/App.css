@@ -1,0 +1,11 @@
+.App{
+  background-color: #0c1e0f;
+  min-height: 100vh;
+  padding: 2% 3%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
+  justify-content: center;
+  
+  
+}
