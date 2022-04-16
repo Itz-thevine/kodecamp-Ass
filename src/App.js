@@ -1,613 +1,105 @@
-import Card from './component/Card';
+import { useState, useReducer } from 'react';
 import './App.css';
 
-function App() {
-  const allGiftCards = [
-    {
-    id: "1",
-    title: "Steam",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "2",
-    title: "Apple Universal",
-    currencies: ["usd", "gbp", "eur", "aud", "cad", "nzd", "chf"],
-    },
-    {
-    id: "3",
-    title: "iTunes",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "grc",
-      "prt",
-      "nld",
-      "bel",
-      "fin",
-      "sgd",
-      "ger",
-      "aut",
-      "fra",
-      "itl",
-      "esp",
-      "irl",
-      "hkd",
-      "dmk",
-      "pln",
-      "rub",
-      "tur",
-      "brl",
-      "nok",
-      "swe",
-      "zar",
-      "mxn",
-      "twd",
-      "jpy",
-    ],
-    },
-    {
-    id: "4",
-    title: "Google Play",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "sgd",
-      "jpy",
-      "brl",
-      "pln",
-      "mxn",
-      "zar",
-      "hkd",
-      "idr",
-      "thb",
-      "myr",
-      "tur",
-      "krw",
-    ],
-    },
-    {
-    id: "5",
-    title: "Amazon",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "6",
-    title: "Ebay",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "7",
-    title: "Sephora",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "8",
-    title: "American Express",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "9",
-    title: "Vanilla",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "10",
-    title: "Walmart",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "11",
-    title: "Nordstrom",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "12",
-    title: "Target",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "13",
-    title: "Offgamers",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "14",
-    title: "Xbox",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "15",
-    title: "Macy’s",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "16",
-    title: "Razer Gold",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "17",
-    title: "JCPenny",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "18",
-    title: "Foot Locker",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "19",
-    title: "Nike",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "20",
-    title: "Visa",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "21",
-    title: "Target Visa",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "22",
-    title: "Walmart Visa",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "23",
-    title: "Greendot",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "24",
-    title: "Best Buy ",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "25",
-    title: "Play Station",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "26",
-    title: "Home Depot",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "27",
-    title: "Starbucks",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "28",
-    title: "Netflix",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "29",
-    title: "Happy",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "30",
-    title: "Lowe’s",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "31",
-    title: "Gamestop",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "32",
-    title: "Uber",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "33",
-    title: "Adiddas",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "34",
-    title: "G2A",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "35",
-    title: "Hotels",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-    {
-    id: "36",
-    title: "Finish Line",
-    currencies: [
-      "usd",
-      "gbp",
-      "eur",
-      "aud",
-      "cad",
-      "nzd",
-      "chf",
-      "brl",
-      "pol",
-      "hkd",
-    ],
-    },
-  ];
-  
 
+const formReducer = (state, event) =>{
+  return{
+    ...state,
+    [event.name]: event.value
+  }
+}
+
+
+function App() {
+
+  const [submitting, setSubmitting] = useState(false);
+  const [formData, setFormData]= useReducer(formReducer, {});
+
+  const handleChange = (event)=>{
+    setFormData(
+      {
+        name: event.target.name,
+        value: event.target.value,
+      }
+    )
+  }
+
+  const handleSubmit = event => {
+    event.preventDefault();
+   setSubmitting(true);
+
+
+  //  setTimeout(() => {
+  //    setSubmitting(false);
+  //  }, 3000)
+ }
   return (
     <div className="App">
-      {
-        allGiftCards.map((card) => (
-          <Card key={card.id} title = {card.title} curr={card.currencies} />
-        ))
-      }
+      <div>
+        <h1>Profile form</h1>
+      </div>
+      <div className='display'>
+        {
+          submitting ? 
+          <div>
+            You are submitting the following:
+            <ul>
+              {Object.entries(formData).map(([name, value]) => (
+                <li key={name}><strong>{name}</strong>:{value.toString()}</li>
+              ))}
+            </ul>
+          </div>
+          : <p>No content</p>
+        }
+      </div>
+      <div className='formWrapper'>
+        <form onSubmit={handleSubmit}>
+          <div className='formControl'>
+            <label htmlFor="">
+              <p className='labelStyle'>
+                FirstName:
+              </p> 
+              <input type="text" name='firstName' className='inputStyle' onChange={handleChange}/>
+            </label>
+              <label htmlFor="">
+                <p className='labelStyle'>
+                  LastName:
+                </p> 
+                <input type="text" name='lastName' className='inputStyle' onChange={handleChange}/>
+              </label>
+          </div>
+          <div className='formControl'>
+            <label htmlFor="">
+              <p className='labelStyle'>
+                Email:
+              </p> 
+              <input type="email" name='Email' className='inputStyle' onChange={handleChange}/>
+            </label>
+              <label htmlFor="">
+                <p className='labelStyle'>
+                  Gender:
+                </p> 
+                <select name="Gender" onChange={handleChange} id="" className='select' defaultValue={{ label: "none", value: 2 }}>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">none</option>
+                </select>
+              </label>
+          </div>
+          <div className='formControl'>
+            <label htmlFor="">
+              <p className='labelStyle'>
+                Adddress:
+              </p> 
+              <input type="text" name='Address' onChange={handleChange} className='inputStyle'/>
+            </label>
+            <textarea placeholder='Bio' name='bio' type="text" className='textStyle' onChange={handleChange}/>
+          </div>
+          <div className='formControl'>
+            <input type="submit" className='submit'  />
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
